@@ -1,0 +1,10 @@
+{
+	"name": "ln_adls_landingstoragesagar",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://landingstoragesagar.dfs.core.windows.net/"
+		}
+	}
+}
