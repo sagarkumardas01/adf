@@ -1,0 +1,12 @@
+{
+	"name": "ds_sqldb_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ln_sqldb_practicesqldb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
