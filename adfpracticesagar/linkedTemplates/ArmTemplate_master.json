@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfpracticesagar"
+		},
+		"ln_sqldb_practicesqldb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ln_sqldb_practicesqldb'"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://akvaccesspolicysagar.vault.azure.net/"
+		},
+		"ln_adls_landingstoragesagar_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://landingstoragesagar.dfs.core.windows.net/"
+		},
+		"ln_sqldb_practicesqldb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "adfsqserver.database.windows.net"
+		},
+		"ln_sqldb_practicesqldb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "practicesqldb"
+		},
+		"ln_sqldb_practicesqldb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sagardas"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfpracticesagar_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ln_sqldb_practicesqldb_password": {
+						"value": "[parameters('ln_sqldb_practicesqldb_password')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"ln_adls_landingstoragesagar_properties_typeProperties_url": {
+						"value": "[parameters('ln_adls_landingstoragesagar_properties_typeProperties_url')]"
+					},
+					"ln_sqldb_practicesqldb_properties_typeProperties_server": {
+						"value": "[parameters('ln_sqldb_practicesqldb_properties_typeProperties_server')]"
+					},
+					"ln_sqldb_practicesqldb_properties_typeProperties_database": {
+						"value": "[parameters('ln_sqldb_practicesqldb_properties_typeProperties_database')]"
+					},
+					"ln_sqldb_practicesqldb_properties_typeProperties_userName": {
+						"value": "[parameters('ln_sqldb_practicesqldb_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

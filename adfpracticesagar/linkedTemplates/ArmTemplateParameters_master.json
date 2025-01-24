@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfpracticesagar"
+		},
+		"ln_sqldb_practicesqldb_password": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://akvaccesspolicysagar.vault.azure.net/"
+		},
+		"ln_adls_landingstoragesagar_properties_typeProperties_url": {
+			"value": "https://landingstoragesagar.dfs.core.windows.net/"
+		},
+		"ln_sqldb_practicesqldb_properties_typeProperties_server": {
+			"value": "adfsqserver.database.windows.net"
+		},
+		"ln_sqldb_practicesqldb_properties_typeProperties_database": {
+			"value": "practicesqldb"
+		},
+		"ln_sqldb_practicesqldb_properties_typeProperties_userName": {
+			"value": "sagardas"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
